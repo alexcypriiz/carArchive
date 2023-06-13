@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional
 public class CarService {
     final InterfaceCarRepository carRepository;
 
@@ -30,6 +29,7 @@ public class CarService {
         return carRepository.save(car);
     }
 
+    @Transactional
     public Car updateCar(String id, Car car) {
         Optional<Car> carDB = carRepository.findById(id);
         if (carDB.isPresent()) {
@@ -40,6 +40,7 @@ public class CarService {
         }
     }
 
+    @Transactional
     public Optional deleteCar(String id) {
         Optional<Car> carDB = carRepository.findById(id);
         if (carDB.isPresent()) {
