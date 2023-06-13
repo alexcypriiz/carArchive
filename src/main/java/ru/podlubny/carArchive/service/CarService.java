@@ -30,11 +30,12 @@ public class CarService {
     }
 
     @Transactional
-    public Car updateCar(String id, Car car) {
+    public Optional updateCar(String id, Car car) {
         Optional<Car> carDB = carRepository.findById(id);
         if (carDB.isPresent()) {
             car.setId(id);
-            return carRepository.save(car);
+            carRepository.save(car);
+            return carDB;
         } else {
             return null;
         }
