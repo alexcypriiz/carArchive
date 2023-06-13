@@ -25,11 +25,11 @@ public class CarService {
         return carDB.isPresent() ? carDB : null;
     }
 
-    @Transactional
     public Car createCar(Car car) {
         return carRepository.save(car);
     }
 
+    @Transactional
     public Car updateCar(String id, Car car) {
         Optional<Car> carDB = carRepository.findById(id);
         if (carDB.isPresent()) {
@@ -39,6 +39,7 @@ public class CarService {
             return null;
         }
     }
+
     @Transactional
     public Optional deleteCar(String id) {
         Optional<Car> carDB = carRepository.findById(id);
