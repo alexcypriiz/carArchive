@@ -42,7 +42,7 @@ public class CarController {
     public ResponseEntity createCar(@RequestBody Car car) {
         carService.createCar(car);
         return new ResponseEntity<>(new AppStatus(HttpStatus.CREATED.value(),
-                "Car with id" + car.getId() + " added successfully"), HttpStatus.CREATED);
+                "Car with id " + car.getId() + " added successfully"), HttpStatus.CREATED);
     }
 
     @PutMapping("/cars/{id}")
