@@ -25,10 +25,10 @@ public class CarControllerTest {
     private MockMvc mockMvc;
 
     @Autowired
-    ObjectMapper mapper;
+    private ObjectMapper mapper;
 
     @MockBean
-    CarService carService;
+    private CarService carService;
 
     List<Car> cars = List.of(new Car("12345", "MITSUBISHI", "LANCER", "XXX3323X33243433X",1200000.0, 105000.0),
             new Car("newId-12345", "HAVAL", "JOLION", "XXX333333333333333X",2400000.0, 0.0));
