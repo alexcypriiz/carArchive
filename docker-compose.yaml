@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  db:
+    image: "mongodb/mongodb-community-server:6.0-ubi8"
+    container_name: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+  app:
+    build: .
+    container_name: carArchive-web-app
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
